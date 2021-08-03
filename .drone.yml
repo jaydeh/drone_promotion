@@ -11,3 +11,20 @@ steps:
 trigger:
   branch:
   - main
+
+---
+kind: pipeline
+type: docker
+name: trigger only promote
+
+steps:
+  - name: hi
+    image: golang
+    commands:
+    - echo "hi there"
+
+trigger:
+  event:
+  - promote
+  target:
+  - test
