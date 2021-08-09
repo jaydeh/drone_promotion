@@ -13,15 +13,36 @@ trigger:
   - main
 
 ---
+aliases-deployment-triggers:
+  - &when_deploy_stage
+    when:
+      event:
+        - promote
+      environment:
+        - stage
+  - &when_deploy_prod
+    when:
+      event:
+        - promote
+      environment:
+        - prod
+
 kind: pipeline
 type: docker
 name: trigger only promote
+
 
 steps:
   - name: hi
     image: golang
     commands:
     - echo "hi there"
+  
+  - name: show only stage
+    image: golang
+    commands:
+    - echo "only in stage"
+    <<: *when_deploy_stage
 
 trigger:
   event:
