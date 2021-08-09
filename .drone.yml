@@ -1,3 +1,11 @@
+aliases-deployment-triggers:
+  - &when_deploy_stage
+    when:
+      event:
+        - promote
+      environment:
+        - stage
+        
 kind: pipeline
 type: docker
 name: test pipeline
@@ -7,6 +15,12 @@ steps:
     image: golang
     commands:
     - ls
+  
+  - name: show only stage
+    image: golang
+    commands:
+    - echo "only in stage"
+    <<: *when_deploy_stage
 
 trigger:
   branch:
@@ -38,11 +52,7 @@ steps:
     commands:
     - echo "hi there"
   
-  - name: show only stage
-    image: golang
-    commands:
-    - echo "only in stage"
-    <<: *when_deploy_stage
+  
 
 trigger:
   event:
