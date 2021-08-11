@@ -51,6 +51,7 @@ steps:
     image: golang
     commands:
     - echo "hi there"
+    - echo $TEST
   
   
 
