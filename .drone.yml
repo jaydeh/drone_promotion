@@ -23,6 +23,7 @@ steps:
     commands:
     - echo "hi there"
     - echo $TEST
+    - echo ${TEST}
 
   - name: special
     image: golang
