@@ -5,35 +5,6 @@ aliases-deployment-triggers:
         - promote
       environment:
         - stage
-        
-kind: pipeline
-type: docker
-name: test pipeline
-
-steps:
-  - name: show file
-    image: golang
-    commands:
-    - ls
-  
-  - name: show only stage
-    image: golang
-    commands:
-    - echo "only in stage"
-    <<: *when_deploy_stage
-
-trigger:
-  branch:
-  - main
-
----
-aliases-deployment-triggers:
-  - &when_deploy_stage
-    when:
-      event:
-        - promote
-      environment:
-        - stage
   - &when_deploy_prod
     when:
       event:
@@ -52,11 +23,9 @@ steps:
     commands:
     - echo "hi there"
     - echo $TEST
-  
+    - if (( ${TEST} == 'DB' )) then echo "deploying now the database" elif(( ${TEST} == "ADF" )) then echo "deploying now adf" else echo "deploying both" fi
   
 
 trigger:
-  event:
-  - promote
-  target:
-  - test
+  branch:
+  - main
