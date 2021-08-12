@@ -23,7 +23,16 @@ steps:
     commands:
     - echo "hi there"
     - echo $TEST
-    - if (( ${TEST} == 'DB' )) then echo "deploying now the database" elif(( ${TEST} == "ADF" )) then echo "deploying now adf" else echo "deploying both" fi
+
+  - name: special
+    image: golang
+    commands:
+      - if (( $TEST == 'DB' )) then echo "deploying now the database" elif(( $TEST == "ADF" )) then echo "deploying now adf" else echo "deploying both" fi
+    when:
+      event:
+        - promote
+      target:
+        - tst
   
 
 trigger:
