@@ -25,12 +25,18 @@ steps:
     - echo $TEST
     - echo ${TEST}
 
+  - name: test if
+    image: golang
+    comamnds:
+      - var1="test"
+      - if [ "$var1" == test ]; then echo "true" fi
+
   - name: special
     image: golang
     commands:
      # - apt-get install dos2unix
 #      - if  ${TEST} == 'DB' then echo "deploying now the database" elif ${TEST} == "ADF" then echo "deploying now adf" else echo "deploying both" fi
-      - if [ -z "$TEST" ]; then echo "variable is null" fi
+      - if [ -z "$TEST" ]; then echo "variable is null"; fi
     when:
       event:
         - promote
