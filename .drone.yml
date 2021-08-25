@@ -29,7 +29,7 @@ steps:
     image: golang
     commands:
 #      - if  ${TEST} == 'DB' then echo "deploying now the database" elif ${TEST} == "ADF" then echo "deploying now adf" else echo "deploying both" fi
-      - [ -z "$TEST" ] && echo "variable is null"
+      - if [ -z "$TEST" ] then echo "variable is null" fi
     when:
       event:
         - promote
