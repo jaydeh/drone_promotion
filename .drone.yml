@@ -24,6 +24,7 @@ steps:
       - var1="test"
       #- if [ "$var1" == test ]; then echo "true" fi
       - echo $var1
+      - echo "test lines"
 
   - name: special
     image: golang
