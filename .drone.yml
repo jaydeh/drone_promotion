@@ -20,14 +20,8 @@ name: trigger only promote
 steps:
   - name: test if
     image: golang
-    comamnds:
-    - echo "test"
-    - if [ "test" == "tst"]; then echo "false"; fi;
-      #- var1="test"
-      #- if [ "$var1" == test ]; then echo "true" fi
-      #- echo $var1
-      #- echo "test lines"
-    #- export ENV_VAR="testing"
+    commands:
+      - echo "test"
 
   
   #- name: check var scope
