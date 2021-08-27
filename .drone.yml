@@ -31,12 +31,48 @@ steps:
   #    - import ENV_VAR
   #    - echo $ENV_VAR
 
-  - name: special
+  - name: get files
     image: golang
     commands:
      # - apt-get install dos2unix
 #      - if  ${TEST} == 'DB' then echo "deploying now the database" elif ${TEST} == "ADF" then echo "deploying now adf" else echo "deploying both" fi
-      - if [ -z "$TEST" ]; then echo "variable is null"; else echo "not null"; fi;
+      - echo "check each variable then if yes get their latest files"
+    when:
+      event:
+        - promote
+      target:
+        - tst
+
+  - name: db deployment
+    image: golang
+    commands:
+     # - apt-get install dos2unix
+#      - if  ${TEST} == 'DB' then echo "deploying now the database" elif ${TEST} == "ADF" then echo "deploying now adf" else echo "deploying both" fi
+      - if [ "$DB" == "YES" ]; then echo "deploying db"; else exit 0; fi;
+    when:
+      event:
+        - promote
+      target:
+        - tst
+
+  - name: adf deployment
+    image: golang
+    commands:
+     # - apt-get install dos2unix
+#      - if  ${TEST} == 'DB' then echo "deploying now the database" elif ${TEST} == "ADF" then echo "deploying now adf" else echo "deploying both" fi
+      - if [ "$ADF" == "YES" ]; then echo "deploying adf"; else exit 0; fi;
+    when:
+      event:
+        - promote
+      target:
+        - tst
+
+  - name: pbi
+    image: golang
+    commands:
+     # - apt-get install dos2unix
+#      - if  ${TEST} == 'DB' then echo "deploying now the database" elif ${TEST} == "ADF" then echo "deploying now adf" else echo "deploying both" fi
+      - if [ "$PBI" == "YES" ]; then echo "deploying pbi"; else exit 0; fi;
     when:
       event:
         - promote
