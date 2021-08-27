@@ -37,7 +37,7 @@ steps:
   - name: db deployment
     image: golang
     commands:
-      - if [ ${DB} = "YES" ]; then echo "deploying db"; else echo "exiting";exit 1; fi;
+      - if [ ${DB} = "YES" ]; then echo "deploying db"; else echo "exiting";exit 0; fi;
     when:
       event:
         - promote
@@ -47,7 +47,7 @@ steps:
   - name: adf deployment
     image: golang
     commands:
-      - if [ "$ADF" == "YES" ]; then echo "deploying adf"; else exit 0; fi;
+      - if [ ${ADF} == "YES" ]; then echo "deploying adf"; else echo "exiting";exit 0; fi;
     when:
       event:
         - promote
@@ -57,9 +57,7 @@ steps:
   - name: pbi
     image: golang
     commands:
-     # - apt-get install dos2unix
-#      - if  ${TEST} == 'DB' then echo "deploying now the database" elif ${TEST} == "ADF" then echo "deploying now adf" else echo "deploying both" fi
-      - if [ "$PBI" == "YES" ]; then echo "deploying pbi"; else exit 0; fi;
+      - if [ ${PBI} == "YES" ]; then echo "deploying pbi"; else echo "exiting";exit 0; fi;
     when:
       event:
         - promote
