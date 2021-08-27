@@ -22,14 +22,7 @@ steps:
     image: golang
     commands:
       - echo "test"
-      - if  "test" == "tst" ; then echo "false"; else echo "true"; fi;
-
-  
-  #- name: check var scope
-  #  image: golang
-  #  commands:
-  #    - import ENV_VAR
-  #    - echo $ENV_VAR
+    #  - if  "test" == "tst" ; then echo "false"; else echo "true"; fi;
 
   - name: get files
     image: golang
@@ -41,17 +34,17 @@ steps:
       target:
         - tst
 
-  #- name: db deployment
-  #  image: golang
-  #  commands:
+  - name: db deployment
+    image: golang
+    commands:
       #- echo ${DB}
       #- if [ -z ${DB+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; fi;
-  #  - if [ ${DB} = "YES" ]; then echo "deploying db"; else echo "exiting";exit 1; fi;
-  #  when:
-  #    event:
-  #      - promote
-  #    target:
-  #      - tst
+    - if [ ${DB} = "YES" ]; then echo "deploying db"; else echo "exiting";exit 1; fi;
+    when:
+      event:
+        - promote
+      target:
+        - tst
 
   - name: adf deployment
     image: golang
