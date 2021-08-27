@@ -11,6 +11,11 @@ steps:
 trigger:
   branch:
     - main
+  event:
+    include:
+      - push
+    exclude:
+      - promote
 
 ---
 
