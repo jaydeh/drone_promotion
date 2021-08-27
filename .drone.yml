@@ -18,18 +18,12 @@ name: trigger only promote
 
 
 steps:
-  - name: hi
-    image: golang
-    commands:
-    - echo "hi there"
-    - echo $TEST
-    - echo ${TEST}
-
   - name: test if
     image: golang
     comamnds:
       - var1="test"
       - if [ "$var1" == test ]; then echo "true" fi
+      - echo $var1
 
   - name: special
     image: golang
