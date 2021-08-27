@@ -37,7 +37,7 @@ steps:
   - name: db deployment
     image: golang
     commands:
-      - if [ ${DB} = "YES" ]; then echo "deploying db"; else echo "exiting";exit 0; fi;
+      - if [ ${DB,,} = "yes" ]; then echo "deploying db"; else echo "exiting";exit 0; fi;
     when:
       event:
         - promote
@@ -47,7 +47,7 @@ steps:
   - name: adf deployment
     image: golang
     commands:
-      - if [ ${ADF} = "YES" ]; then echo "deploying adf"; else echo "exiting";exit 0; fi;
+      - if [ ${ADF,,} = "yes" ]; then echo "deploying adf"; else echo "exiting";exit 0; fi;
     when:
       event:
         - promote
@@ -57,7 +57,7 @@ steps:
   - name: pbi
     image: golang
     commands:
-      - if [ ${PBI} = "YES" ]; then echo "deploying pbi"; else echo "exiting";exit 0; fi;
+      - if [ ${PBI,,} = "yes" ]; then echo "deploying pbi"; else echo "exiting";exit 0; fi;
     when:
       event:
         - promote
