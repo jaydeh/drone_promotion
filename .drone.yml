@@ -45,7 +45,7 @@ steps:
     image: golang
     commands:
       - echo $DB
-      - if  $${DB} == "YES" ; then echo "deploying db"; else exit 0; fi;
+      - if "$DB" == "YES" ; then echo "deploying db"; else exit 0; fi;
     when:
       event:
         - promote
