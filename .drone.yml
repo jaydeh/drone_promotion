@@ -30,6 +30,9 @@ steps:
       - echo ${DRONE_TAG}
 
 triggers:
+  event:
+    exclude:
+      - push
   ref:
     include:
       - refs/tags/**
