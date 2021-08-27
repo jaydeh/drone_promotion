@@ -21,6 +21,23 @@ trigger:
 
 kind: pipeline
 type: docker
+name: add files to storage
+
+steps:
+  - name: check for components
+    image: golang
+    commands:
+      - echo ${DRONE_TAG}
+
+triggers:
+  ref:
+    include:
+      - refs/tags/**
+
+---
+
+kind: pipeline
+type: docker
 name: promote to tst
 
 steps:
