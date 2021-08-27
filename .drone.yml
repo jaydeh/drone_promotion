@@ -1,70 +1,46 @@
-aliases-deployment-triggers:
-  - &when_deploy_stage
-    when:
-      event:
-        - promote
-      environment:
-        - stage
-  - &when_deploy_prod
-    when:
-      event:
-        - promote
-      environment:
-        - prod
+kind: pipeline
+type: docker
+name: main pipeline
+
+steps:
+  - name: hello world
+    image: golang
+    commands:
+      - echo "hello world"
+
+trigger:
+  branch:
+    - main
+
+---
 
 kind: pipeline
 type: docker
-name: trigger only promote
-
+name: promote to tst
 
 steps:
-  - name: test if
-    image: golang
-    commands:
-      - echo "test"
-    #  - if  "test" == "tst" ; then echo "false"; else echo "true"; fi;
-
   - name: get files
     image: golang
     commands:
       - echo "check each variable then if yes get their latest files"
-    when:
-      event:
-        - promote
-      target:
-        - tst
 
   - name: db deployment
     image: golang
     commands:
       - if [ ${DB,,} = "yes" ]; then echo "deploying db"; else echo "exiting";exit 0; fi;
-    when:
-      event:
-        - promote
-      target:
-        - tst
 
   - name: adf deployment
     image: golang
     commands:
       - if [ ${ADF,,} = "yes" ]; then echo "deploying adf"; else echo "exiting";exit 0; fi;
-    when:
-      event:
-        - promote
-      target:
-        - tst
 
   - name: pbi
     image: golang
     commands:
       - if [ ${PBI,,} = "yes" ]; then echo "deploying pbi"; else echo "exiting";exit 0; fi;
-    when:
-      event:
-        - promote
-      target:
-        - tst
-  
 
 trigger:
-  branch:
-  - main
+  event:
+    - promote
+  target:
+    - tst
