@@ -25,14 +25,15 @@ steps:
       #- if [ "$var1" == test ]; then echo "true" fi
       #- echo $var1
       #- echo "test lines"
-    - export ENV_VAR="testing"
+    #- export ENV_VAR="testing"
+    - echo "test"
     - if [ "test" == "tst"]; then echo "false"; fi;
   
-  - name: check var scope
-    image: golang
-    commands:
-      - import ENV_VAR
-      - echo $ENV_VAR
+  #- name: check var scope
+  #  image: golang
+  #  commands:
+  #    - import ENV_VAR
+  #    - echo $ENV_VAR
 
   - name: special
     image: golang
