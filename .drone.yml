@@ -21,7 +21,7 @@ steps:
   - name: test if
     image: golang
     comamnds:
-        - echo "test"
+    - echo "test"
     - if [ "test" == "tst"]; then echo "false"; fi;
       #- var1="test"
       #- if [ "$var1" == test ]; then echo "true" fi
