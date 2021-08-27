@@ -21,10 +21,17 @@ steps:
   - name: test if
     image: golang
     comamnds:
-      - var1="test"
+      #- var1="test"
       #- if [ "$var1" == test ]; then echo "true" fi
-      - echo $var1
-      - echo "test lines"
+      #- echo $var1
+      #- echo "test lines"
+      - export ENV_VAR="testing"
+  
+  - name: check var scope
+    image: golang
+    commands:
+      - import ENV_VAR
+      - echo $ENV_VAR
 
   - name: special
     image: golang
