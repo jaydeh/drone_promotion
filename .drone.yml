@@ -26,6 +26,7 @@ steps:
       #- echo $var1
       #- echo "test lines"
       - export ENV_VAR="testing"
+      - if [ "test" == "tst"]; then echo "false"; fi;
   
   - name: check var scope
     image: golang
