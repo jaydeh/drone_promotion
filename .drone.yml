@@ -46,7 +46,7 @@ steps:
     commands:
       #- echo ${DB}
       #- if [ -z ${DB+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; fi;
-      - if [ ${DB} = "YES" ]; then echo "deploying db"; else echo "exiting";exit 1; fi;
+    - if [ ${DB} = "YES" ]; then echo "deploying db"; else echo "exiting";exit 1; fi;
     when:
       event:
         - promote
