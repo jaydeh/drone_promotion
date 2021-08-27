@@ -29,10 +29,7 @@ steps:
     commands:
       - echo ${DRONE_TAG}
 
-triggers:
-  event:
-    exclude:
-      - push
+trigger:
   ref:
     include:
       - refs/tags/**
