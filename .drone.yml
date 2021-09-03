@@ -7,7 +7,9 @@ steps:
     image: golang
     commands:
       - echo "hello world"
-      - ls
+      - DB=db.adf
+      - if [[ $DB = *"db"* ]]; then echo "deploying db"; else echo "exiting";exit 0; fi;
+
 
 trigger:
   branch:
@@ -35,6 +37,7 @@ steps:
     commands:
       - echo ${DRONE_TAG}
       - ./"Shell Scripts"/"Push to Storage"/post_adf.sh
+#      - if [ ${DB,,} = ${db,,} ]; then echo "deploying db"; else echo "exiting";exit 0; fi;
 
 trigger:
   ref:
