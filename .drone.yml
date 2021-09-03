@@ -26,7 +26,7 @@ name: add files to storage
 
 steps:
   - name: check for components
-    image: golang
+    image: mcr.microsoft.com/azure-cli
     commands:
       - echo ${DRONE_TAG}
       - ./"Shell Scripts"/"Push to Storage"/push_adf.sh
