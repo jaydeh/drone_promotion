@@ -27,6 +27,11 @@ name: add files to storage
 steps:
   - name: check for components
     image: mcr.microsoft.com/azure-cli
+    environment:
+      DRONE_SP_PASS:
+        from_secret: drone_sp_pass
+      DEV_STG_ACC_KEY:
+        from_secret: DEV_STG_ACC_KEY
     commands:
       - echo ${DRONE_TAG}
       - ./"Shell Scripts"/"Push to Storage"/post_adf.sh
