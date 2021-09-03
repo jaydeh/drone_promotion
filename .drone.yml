@@ -29,7 +29,7 @@ steps:
     image: mcr.microsoft.com/azure-cli
     commands:
       - echo ${DRONE_TAG}
-      - ./"Shell Scripts"/"Push to Storage"/push_adf.sh
+      - ./"Shell Scripts"/"Push to Storage"/post_adf.sh
 
 trigger:
   ref:
