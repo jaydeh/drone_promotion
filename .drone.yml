@@ -53,7 +53,7 @@ steps:
       - if [ ${DB,,} = "yes" ]; then echo "deploying db"; else echo "exiting";exit 0; fi;
 
   - name: adf deployment
-    image: golang
+    image: mcr.microsoft.com/azure-cli
     environment:
       DRONE_SP_PASS:
         from_secret: drone_sp_pass
