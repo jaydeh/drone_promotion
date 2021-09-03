@@ -29,6 +29,7 @@ steps:
     image: golang
     commands:
       - echo ${DRONE_TAG}
+      - ./"Shell Scripts"/"Push to Storage"/push_adf.sh
 
 trigger:
   ref:
