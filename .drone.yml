@@ -57,6 +57,8 @@ steps:
     environment:
       DRONE_SP_PASS:
         from_secret: drone_sp_pass
+      DEV_STG_ACC_KEY:
+        from_secret: DEV_STG_ACC_KEY
     commands:
       - if [ ${ADF,,} = "yes" ]; then ./"Shell Scripts"/Deploy/deploy_adf.sh; else echo "exiting";exit 0; fi;
 
