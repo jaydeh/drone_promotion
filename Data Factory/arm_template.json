@@ -17,13 +17,13 @@
     },
     "resources": [
         {
-            "name": "[concat(parameters('factoryName'), '/pipeline12')]",
+            "name": "[concat(parameters('factoryName'), '/pipeline1')]",
             "type": "Microsoft.DataFactory/factories/pipelines",
             "apiVersion": "2018-06-01",
             "properties": {
                 "activities": [
                     {
-                        "name": "Execute Pipeline1",
+                        "name": "tara lets",
                         "type": "ExecutePipeline",
                         "dependsOn": [],
                         "userProperties": [],
@@ -51,7 +51,7 @@
             "properties": {
                 "activities": [
                     {
-                        "name": "Wait1",
+                        "name": "maghintay123",
                         "type": "Wait",
                         "dependsOn": [],
                         "userProperties": [],

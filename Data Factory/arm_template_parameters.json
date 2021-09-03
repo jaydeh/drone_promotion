@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "factoryName": {
-            "value": "testing-v2"
+            "value": "drone-poc"
         },
         "AzureSqlDatabase1_connectionString": {
             "value": ""

@@ -53,8 +53,11 @@ steps:
 
   - name: adf deployment
     image: golang
+    environment:
+      DRONE_SP_PASS:
+        from_secret: drone_sp_pass
     commands:
-      - if [ ${ADF,,} = "yes" ]; then echo "deploying adf"; else echo "exiting";exit 0; fi;
+      - if [ ${ADF,,} = "yes" ]; then ./drone_promotion/"Shell Scripts"/Deploy/deploy_adf.sh; else echo "exiting";exit 0; fi;
 
   - name: pbi
     image: golang
