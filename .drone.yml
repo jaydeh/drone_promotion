@@ -8,7 +8,7 @@ steps:
     commands:
       - echo "hello world"
       - DB=db.adf
-      - if [[ $DB = *"db"* ]]; then echo "deploying db"; else echo "exiting";exit 0; fi;
+      - if [[ ${DB,,} = *"db"* ]]; then echo "deploying db"; else echo "exiting";exit 0; fi;
 
 
 trigger:
