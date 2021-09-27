@@ -4,9 +4,11 @@ name: main pipeline
 
 steps:
   - name: hello world
-    image: golang
+    image: mcr.microsoft.com/dotnet/framework/sdk:3.5
     commands:
-      - echo "hello world"
+      - dotnet build "Database/Database1/Database.build/database.build.csproj"
+      - cd "Database/Database1/Database.build/bin"
+      - ls
 
 trigger:
   branch:
