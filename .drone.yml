@@ -4,7 +4,7 @@ name: main pipeline
 
 steps:
   - name: hello world
-    image: mcr.microsoft.com/dotnet/framework/sdk:3.5
+    image: mcr.microsoft.com/dotnet/framework/sdk:latest
     commands:
       - dotnet build "Database/Database1/Database.build/database.build.csproj"
       - cd "Database/Database1/Database.build/bin"
