@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "qlIwGJdJ9QTflVzwY8H0lD1+SGsOFCOPZ5veIOKnGQEN5B4QwwjaNLmBar2uiP/LP5cD63B0FHVcEIzH9Pwy9g==",
+  "success": true,
+  "projectFilePath": "D:\\DB\\Database1\\Database.build\\Database.build.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jondreanbadevprd\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\jondreanbadevprd\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

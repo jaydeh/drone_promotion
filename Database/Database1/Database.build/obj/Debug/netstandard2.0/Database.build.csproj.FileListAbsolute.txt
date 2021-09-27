@@ -1,0 +1,8 @@
+D:\DB\Database1\Database.build\bin\Debug\netstandard2.0\Database.build.deps.json
+D:\DB\Database1\Database.build\bin\Debug\netstandard2.0\Database.build.pdb
+D:\DB\Database1\Database.build\obj\Debug\netstandard2.0\Database.build.csprojAssemblyReference.cache
+D:\DB\Database1\Database.build\obj\Debug\netstandard2.0\Database.build.AssemblyInfoInputs.cache
+D:\DB\Database1\Database.build\obj\Debug\netstandard2.0\Database.build.AssemblyInfo.cs
+D:\DB\Database1\Database.build\obj\Debug\netstandard2.0\Database.build.pdb
+D:\DB\Database1\Database.build\bin\Debug\netstandard2.0\Database.build.dacpac
+D:\DB\Database1\Database.build\obj\Debug\netstandard2.0\Database.build.dacpac
